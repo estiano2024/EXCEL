@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planilha</title>
+    <link rel="stylesheet" href="excel.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>PLANILHAS EXCEL</h1>
+        
+        <div class="upload-section">
+            <h2>Carregar Planilha</h2>
+            <input type="file" id="fileInput" accept=".xlsx, .xls" />
+            <p>Selecione o arquivo .XLSX com os dados dos alunos</p>
+        </div>
+        
+        <div id="filtersSection" class="hidden">
+            <div class="summary">
+                <h3>Resumo</h3>
+                <div id="summaryContent"></div>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="escolaFilter">Escola:</label>
+                    <select id="escolaFilter">
+                        <option value="all">Todas as Escolas</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="cursoFilter">Curso:</label>
+                    <select id="cursoFilter">
+                        <option value="all">Todos os Cursos</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="salaFilter">Sala:</label>
+                    <select id="salaFilter">
+                        <option value="all">Todas as Salas</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="situacaoFilter">Situação:</label>
+                    <select id="situacaoFilter">
+                        <option value="all">Todas as Situações</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="search">Pesquisar:</label>
+                    <input type="text" id="search" placeholder="Digite para filtrar...">
+                </div>
+                
+                <div class="filter-group" style="align-self: flex-end;">
+                    <button id="resetFilters">Limpar Filtros</button>
+                </div>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Chamada</th>
+                            <th>Aluno</th>
+                            <th>RA</th>
+                            <th>Dig. RA</th>
+                            <th>Sexo</th>
+                            <th>Nascimento</th>
+                            <th>Email Microsoft</th>
+                            <th>Email Google</th>
+                            <th>Situação</th>
+                            <th>Sala</th>
+                            <th>Escola</th>
+                            <th>Ano</th>
+                            <th>Curso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="summary">
+                <h3>Total de Alunos: <span id="totalCount">0</span></h3>
+                <div id="filteredCount"></div>
+            </div>
+        </div>
+    </div>
+    <script src="alunos.js"></script>
+</body>
+</html>
